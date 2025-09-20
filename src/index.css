@@ -1,0 +1,31 @@
+/* === Fonts === */
+@font-face {
+  font-family: 'Space Mono';
+  src: url('/fonts/SpaceMonoRegular-JRrmm.ttf') format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Space Mono';
+  src: url('/fonts/SpaceMonoBold-AL8np.ttf') format('truetype');
+  font-weight: bold;
+}
+
+/* === Base Styles === */
+body {
+  font-family: 'Space Mono', monospace;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #a9cdd6; /* fallback color */
+}
+
+/* === Custom Background Class === */
+.my-background {
+  background-image: url('/images/background.jpeg');
+  background-size: cover;
+}
+
+/* === Tailwind Directives (must be last) === */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
