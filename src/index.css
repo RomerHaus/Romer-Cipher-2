@@ -16,16 +16,16 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background-color: #a9cdd6; /* fallback color */
+  background-color: #ffffff; /* fallback */
 }
 
-/* === Custom Background Class === */
+/* === Background Class === */
 .my-background {
-  background-image: url('/images/background.jpeg');
+  background: url('/images/background.jpeg') no-repeat center center fixed;
   background-size: cover;
 }
 
-/* === Tailwind Directives (must be last) === */
+/* === Tailwind === */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

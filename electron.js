@@ -1,26 +1,27 @@
-const { app, BrowserWindow } = require('electron')
-const path = require('path')
+const { app, BrowserWindow } = require('electron');
+const path = require('path');
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
     width: 1000,
     height: 800,
     webPreferences: {
-      nodeIntegration: true,
+      preload: path.join(__dirname, 'preload.js'), // optional
     },
-  })
+  });
 
-  const indexPath = path.join(__dirname, 'dist', 'index.html')
-  mainWindow.loadURL(`file://${indexPath}`)
-
+  // load the Vite build
+  mainWindow.loadFile(path.join(__dirname, 'dist', 'index.html'));
+}
 
 app.whenReady().then(() => {
-  createWindow()
+  createWindow();
+
   app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
-  })
-})
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  });
+});
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit()
-})
+  if (process.platform !== 'darwin') app.quit();
+});
